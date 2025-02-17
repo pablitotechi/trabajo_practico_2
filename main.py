@@ -23,3 +23,22 @@ async def get_user():
     if not users:
         return {"message": "No users found"}
     return {"users": users}
+
+
+# Crea una instancia de la aplicación FastAPI
+app = FastAPI()
+
+# Lista para almacenar los usuarios
+users = []
+
+# Endpoint POST para crear un usuario
+@app.post("/create-user/")
+async def create_user(user: dict):
+    users.append(user)
+    return {"message": "User created successfully!"}
+
+# Endpoint GET para obtener los usuarios
+@app.get("/get-users/")
+async def get_users():
+    return users
+
