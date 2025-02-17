@@ -17,7 +17,7 @@ async def create_user(user: User):
     users.append(user)
     return {"message": "User created successfully", "user": user}
 
-# API GET para obtener el usuario
+# API GET para obtener los usuarios
 @app.get("/user/")
 async def get_user():
     if not users:
