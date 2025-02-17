@@ -23,3 +23,19 @@ async def get_user():
     if not users:
         return {"message": "No users found"}
     return {"users": users}
+
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+users = []
+
+@app.post("/create-user/")
+async def create_user(user: dict):
+    users.append(user)
+    return {"message": "User created successfully!"}
+
+@app.get("/get-user/")
+async def get_user():
+    return {"users": users}
